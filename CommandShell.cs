@@ -36,7 +36,17 @@ namespace DesertSoftware.CommandConsole
         }
 
         public virtual void OnError(Exception ex) {
-            Console.WriteLine(ex.Message);
+            ConsoleColorManager.SetForegroundColor(ConsoleColor.DarkRed);
+
+            // show all of the exception messages including all internal exceptions
+            try {
+                while (ex != null) {
+                    Console.WriteLine(ex.Message);
+                    ex = ex.InnerException;
+                }
+            } finally {
+                ConsoleColorManager.RestoreForegroundColor();
+            }
         }
 
         public void Run(CommandSet commands) {
