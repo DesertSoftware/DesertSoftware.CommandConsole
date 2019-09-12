@@ -1,20 +1,21 @@
-﻿/* 
-//  Copyright Desert Software Solutions, Inc 2013
+﻿//
 //  Command Console Library
-
-// Copyright (c) 2013 Desert Software Solutions Inc. All rights reserved.
-
-// THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, 
-// BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT AND FITNESS FOR A 
-// PARTICULAR PURPOSE ARE DISCLAIMED.  
-
-// IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
-// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
-// OF THE USE OF THIS SOFTWARE, WHETHER OR NOT SUCH DAMAGES WERE FORESEEABLE AND EVEN IF THE AUTHOR IS ADVISED 
-// OF THE POSSIBILITY OF SUCH DAMAGES. 
-*/
+//    https://github.com/DesertSoftware/DesertSoftware.CommandConsole
+//
+//  Copyright (c) Desert Software Solutions, Inc. All rights reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
 
 using System;
 using System.Collections.Generic;
@@ -28,14 +29,37 @@ namespace DesertSoftware.CommandConsole
     {
         protected bool timeToQuit = false;
 
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the session.
+        /// </summary>
+        /// <value>
+        /// The session.
+        /// </value>
         public object Session { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether [time to quit].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [time to quit]; otherwise, <c>false</c>.
+        /// </value>
         public virtual bool TimeToQuit {
             get { return this.timeToQuit; }
             internal set { this.timeToQuit = value; }
         }
 
+        /// <summary>
+        /// Writes the command descriptions.
+        /// </summary>
+        /// <param name="writer">The writer.</param>
         public virtual void WriteCommandDescriptions(TextWriter writer) {
             foreach (var command in this.Keys) {
                 var name = string.Format("  {0}", command).PadRight(29);
@@ -50,6 +74,11 @@ namespace DesertSoftware.CommandConsole
             }
         }
 
+        /// <summary>
+        /// Executes with the specified arguments.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        /// <exception cref="NoSuchCommandException"></exception>
         public virtual void Execute(string[] args) {
 
             // if no arguments presented, nothing to do

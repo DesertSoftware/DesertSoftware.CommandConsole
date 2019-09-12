@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DesertSoftware.CommandConsole</id>
+    <version>$version$</version>
+    <authors>DesertSoftware</authors>
+    <owners>DesertSoftware</owners>
+    <title>Desert Software Command Console</title>
+    <summary>Console extensions for command  line interfaces.</summary>
+    <description>The Desert Software Command Console library provides console extensions for building command line interfaces</description>
+    <tags>console command cli desertsoftware</tags>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/desertsoftware/desertsoftware.commandconsole</projectUrl>
+    <!--<iconUrl>https://raw.githubusercontent.com/desertsoftware/desertsoftware.commandconsole/master/Assets/CommandConsole_128x128.png</iconUrl>-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <copyright>© Desert Software Solutions Inc. All rights reserved.</copyright> 
+  </metadata>
+</package>
